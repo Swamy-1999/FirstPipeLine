@@ -57,9 +57,14 @@ jobs:
     steps:
       - name: heathcheck
         run: |
-            python3 -c "
-            for i in range(5):
-                print(i)
-            "
+            for i in {0..4}; do
+              echo $i
+              done
             echo "done"
+          
+            # python3 -c "
+            # for i in range(5):
+            #     print(i)
+            # "
+            # echo "done"
  
