@@ -36,15 +36,31 @@ jobs:
           echo test, and deploy your project.
           
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run one line script9ii
+      #- uses: actions/checkout@v4
+      - name: Run one line script for test
         run: echo second one this is test stage
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run one line script9ii
+      #- uses: actions/checkout@v4
+      - name: Run one line script for deploy
         run: echo third one this is deploy stage
+
+  helthcheck:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: heathcheck
+        run: |
+          for i in {1..10}; do
+            i % 2 = 0;
+            i++
+            echo $i 
+            done;
+            echo Helthcheck done
+  
