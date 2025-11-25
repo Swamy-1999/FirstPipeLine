@@ -40,4 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run one line script9ii
-        run: echo Second one this is test stage
+        run: echo second one this is test stage
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run one line script9ii
+        run: echo third one this is deploy stage
